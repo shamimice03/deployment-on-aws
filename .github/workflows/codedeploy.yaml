@@ -1,0 +1,29 @@
+name: Artifact to S3 Bucket
+
+on: 
+    workflow_dispatch:
+    push:
+
+jobs:
+  deploy:
+    #if: github.repository_owner == 'shamimice03'
+    runs-on: ubuntu-latest
+    # These permissions are needed to interact with GitHub's OIDC Token endpoint.
+    permissions:
+        id-token: write
+        contents: read
+    steps:
+        - uses: actions/checkout@v3
+        - name: Configure AWS credentials 
+          uses: aws-actions/configure-aws-credentials@v2
+          with:
+            role-to-assume: ${{ secrets.AWS_ROLE_TO_ASSUME }}
+            aws-region: ${{ secrets.AWS_REGION }}
+
+        - name: AWS CodeDeploy
+          uses: sourcetoad/aws-codedeploy-action@v1
+          with:
+            codedeploy_name: demoapp
+            codedeploy_group: dempapp-deployment
+            s3_bucket: ${{ secrets.S3_BUCKET_NAME }}
+            s3_folder: dev
