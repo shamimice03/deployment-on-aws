@@ -24,6 +24,6 @@ jobs:
           uses: sourcetoad/aws-codedeploy-action@v1
           with:
             codedeploy_name: demoapp
-            codedeploy_group: dempapp-deployment
+            codedeploy_group: demoapp-deployment
             s3_bucket: ${{ secrets.S3_BUCKET_NAME }}
             s3_folder: dev
