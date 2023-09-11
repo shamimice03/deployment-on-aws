@@ -31,7 +31,7 @@ set -x
 # dependency to read phpdotenv file
 composer require vlucas/phpdotenv --working-dir=/var/www/html
 
-sudo sh -c 'echo "Hello, CodeDeploy" > /var/www/html/index.html'
+sudo sh -c 'echo "Hello, CodeDeploy, NBH" > /var/www/html/index.html'
 
 # change permissions 
 # sudo chown -R ec2-user:apache /var/www/
