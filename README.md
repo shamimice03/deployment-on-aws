@@ -220,3 +220,10 @@ mount-s3 application001 /var/www/html/ --uid=$ec2_user_uid --gid=$apache_gid
 composer require vlucas/phpdotenv --working-dir=/var/www/html
 
 ```
+
+### Deployment logs
+```
+ls /opt/codedeploy-agent/deployment-root
+less //opt/codedeploy-agent/deployment-root/<file-name>
+
+```
