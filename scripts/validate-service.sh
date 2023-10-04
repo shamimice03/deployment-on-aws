@@ -5,14 +5,18 @@ REGION="ap-northeast-1"
 
 DBHostname="localhost"
 
-DBPassword=$(aws ssm get-parameters --region $REGION --names /wordpress/db/DBPassword --with-decryption --query Parameters[0].Value)
-DBPassword=$(echo $DBPassword | sed -e 's/^"//' -e 's/"$//')
+# DBPassword=$(aws ssm get-parameters --region $REGION --names /wordpress/db/DBPassword --with-decryption --query Parameters[0].Value)
+# DBPassword=$(echo $DBPassword | sed -e 's/^"//' -e 's/"$//')
 
-DBUser=$(aws ssm get-parameters --region $REGION --names /wordpress/db/DBUser --query Parameters[0].Value)
-DBUser=$(echo $DBUser | sed -e 's/^"//' -e 's/"$//')
+# DBUser=$(aws ssm get-parameters --region $REGION --names /wordpress/db/DBUser --query Parameters[0].Value)
+# DBUser=$(echo $DBUser | sed -e 's/^"//' -e 's/"$//')
 
-DBName=$(aws ssm get-parameters --region $REGION --names /wordpress/db/DBName --query Parameters[0].Value)
-DBName=$(echo $DBName | sed -e 's/^"//' -e 's/"$//')
+# DBName=$(aws ssm get-parameters --region $REGION --names /wordpress/db/DBName --query Parameters[0].Value)
+# DBName=$(echo $DBName | sed -e 's/^"//' -e 's/"$//')
+
+DBPassword="Admin@123"
+DBUser="admin"
+DBName="testdb"
 
 SQL_COMMANDS=$(cat <<-EOF
     CREATE DATABASE ${DBName};

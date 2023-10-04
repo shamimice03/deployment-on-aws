@@ -22,16 +22,23 @@ set -x
 # EFSID=$(aws ssm get-parameters --region $REGION --names /wordpress/efs/EFSID --query Parameters[0].Value)
 # EFSID=$(echo $EFSID | sed -e 's/^"//' -e 's/"$//')
 
-# # create .env file inside /var/www/html
-# echo DBHostname="$DBHostname" > /var/www/html/.env
-# echo DBUser="$DBUser" >> /var/www/html/.env
-# echo DBName="$DBName" >> /var/www/html/.env
-# echo DBPassword="$DBPassword" >> /var/www/html/.env
+REGION="ap-northeast-1"
+DBHostname="localhost"
+DBPassword="Admin@123"
+DBUser="admin"
+DBName="testdb"
+
+mkdir /var/www/env
+# create .env file inside /var/www/html
+echo DBHostname="$DBHostname" > /var/www/env/.env
+echo DBUser="$DBUser" >> /var/www/env/.env
+echo DBName="$DBName" >> /var/www/env/.env
+echo DBPassword="$DBPassword" >> /var/www/env/.env
 
 # dependency to read phpdotenv file
 composer require vlucas/phpdotenv --working-dir=/var/www/html
 
-sudo sh -c 'echo "Hello, Yo" > /var/www/html/index.html'
+sudo sh -c 'echo "Hello, World" > /var/www/html/index.html'
 
 # change permissions 
 # sudo chown -R ec2-user:apache /var/www/

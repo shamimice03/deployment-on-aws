@@ -1,4 +1,4 @@
-name: Artifact to S3 Bucket
+name: Deployment to AWS
 
 on: 
     workflow_dispatch:
@@ -6,7 +6,7 @@ on:
 
 jobs:
   deploy:
-    #if: github.repository_owner == 'shamimice03'
+    if: github.repository_owner == 'shamimice03'
     runs-on: ubuntu-latest
     # These permissions are needed to interact with GitHub's OIDC Token endpoint.
     permissions:

@@ -32,9 +32,9 @@ hooks:
     - location: scripts/after-install.sh
       timeout: 300
       runas: root
-    # - location: scripts/setup-test-db.sh
-    #   timeout: 300
-    #   runas: root
+    - location: scripts/setup-test-db.sh
+      timeout: 300
+      runas: root
   ApplicationStart:
     - location: scripts/application-start.sh
       timeout: 300
@@ -42,7 +42,7 @@ hooks:
     - location: scripts/change-permissions.sh
       timeout: 300
       runas: root
-  # ValidateService:
-  #   - location: scripts/validate-service.sh
-  #     timeout: 300
-  #     runas: root
+  ValidateService:
+    - location: scripts/validate-service.sh
+      timeout: 300
+      runas: root

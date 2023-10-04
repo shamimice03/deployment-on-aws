@@ -1,10 +1,11 @@
-# Integration of `GitHub Actions` and `AWS CodeDeploy`
+# CI/CD pipeline setup using  `GitHub Actions` and `AWS CodeDeploy`
 
-- ## Steps:
+## Steps:
 
 ### GitHub Actions:
 
-1. Register `GitHub OIDC` on AWS.
+1. Register `GitHub OIDC` on AWS:
+
 ![image](https://github.com/shamimice03/of-note/assets/19708705/e7d23ecb-f5bd-4cfa-b5de-2f14f82087ee)
 
 2. Create two policy. One for S3 bucket (where application code or artifact will be stored) and another one for CodeDeploy.
