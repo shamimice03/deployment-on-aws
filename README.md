@@ -4,7 +4,11 @@
 
 ### GitHub Actions:
 
+
 1. Register `GitHub OIDC` on AWS:
+   Provider URL: `https://token.actions.githubusercontent.com`
+   Audience: sts.amazonaws.com
+<img width="1785" alt="image" src="https://github.com/user-attachments/assets/3aee7028-f8ac-4436-8439-bfc8bd37553f" />
 
 ![image](https://github.com/shamimice03/of-note/assets/19708705/e7d23ecb-f5bd-4cfa-b5de-2f14f82087ee)
 
